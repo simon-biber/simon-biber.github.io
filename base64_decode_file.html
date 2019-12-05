@@ -33,6 +33,12 @@
         </div>
         <div class="submit">
           <input id="execute" type="button" value="Download" class="btn btn-default">
+          <label>
+            <input id="hex" type="radio" name="format" value="hex" checked="checked">Hexadecimal
+          </label>
+          <label>
+            <input id="base64" type="radio" name="format" value="base64">Base-64
+          </label>
         </div>
         <div class="output">
           <textarea id="output" placeholder="Output"></textarea>
@@ -138,6 +144,7 @@ $(document).ready(function() {
         </div>
         <div class="clearfix"></div>
       </div>
+      <script src="https://cdn.jsdelivr.net/gh/emn178/hi-base64/build/base64.min.js"></script>
       <script></script>
       <script>method = false;</script>
     </div>

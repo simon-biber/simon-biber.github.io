@@ -36,6 +36,12 @@
           <label>
             <input id="auto-update" type="checkbox" value="1" checked="checked">Auto Update
           </label>
+          <label>
+            <input id="hex" type="radio" name="format" value="hex" checked="checked">Hexadecimal
+          </label>
+          <label>
+            <input id="base64" type="radio" name="format" value="base64">Base-64
+          </label>
         </div>
         <div class="output">
           <textarea id="output" placeholder="Output"></textarea>
@@ -130,6 +136,7 @@
         </div>
         <div class="clearfix"></div>
       </div>
+      <script src="https://cdn.jsdelivr.net/gh/emn178/hi-base64/build/base64.min.js"></script>
       <script src="https://cdn.jsdelivr.net/gh/emn178/js-htmlencode/build/htmlencode.min.js"></script>
       <script>method = htmlEncode;</script>
     </div>

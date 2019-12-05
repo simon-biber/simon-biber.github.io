@@ -8,9 +8,20 @@
     var dropzone = $('#droppable-zone');
     var option = $('[data-option]');
 
+    $('#hex').bind('input propertychange', autoUpdate);
+    $('#base64').bind('input propertychange', autoUpdate);
+
     var execute = function() {
       try {
         output.val(method(input.val(), option.val()));
+
+        if ($("input[name='format']:checked").val() == 'base64') {
+          if (method.array) {
+            var result = method.array(input.val(), option.val());
+            output.val(base64.encode(result));
+          }
+        }
+
       } catch(e) {
         output.val(e);
       }
@@ -88,7 +99,12 @@
               reader.readAsArrayBuffer(file.slice(start, end));
               start = end;
             } else {
-              output.val(current.hex());
+              if ($("input[name='format']:checked").val() == 'hex') {
+                output.val(current.hex());
+              }
+              else {
+                output.val(base64.encode(current.array()));
+              }
             }
           };
           asyncUpdate();

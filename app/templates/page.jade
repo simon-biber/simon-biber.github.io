@@ -27,6 +27,12 @@ block body
         label
           input#auto-update(type='checkbox', value='1', checked='checked')
           | Auto Update
+      label
+        input#hex(type='radio', name='format', value='hex', checked='checked')
+        | Hexadecimal
+      label
+        input#base64(type='radio', name='format', value='base64')
+        | Base-64
     .output
       textarea#output(placeholder='Output')
     != page.html
@@ -40,6 +46,7 @@ block body
       include includes/decoder.jade
     .clearfix
 
+  script(src='https://cdn.jsdelivr.net/gh/emn178/hi-base64/build/base64.min.js')
   script(src=page.metadata.js)
   script
     | method = #{ page.metadata.method };
